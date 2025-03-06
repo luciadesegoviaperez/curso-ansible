@@ -1,0 +1,15 @@
+---
+
+- name: Borrar UCDAgent.ps1
+  hosts: all
+  vars: 
+    ansible_user: "{{lookup('env','SCCM_USERNAME')}}"
+    ansible_password: "{{lookup('env','SCCM_PASSWORD')}}"
+    ansible_become_method: runas
+    ansible_become_user: system
+  tasks:
+    - name: crear fichero
+      win_file:
+        path: "C:/Temp/UCDAgent.ps1"
+        state: touch
+      become: yes
