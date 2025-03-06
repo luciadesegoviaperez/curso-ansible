@@ -1,7 +1,7 @@
 ---
 
 - name: Borrar UCDAgent.ps1
-  hosts: all
+  hosts: win1
   vars: 
     ansible_user: "{{lookup('env','SCCM_USERNAME')}}"
     ansible_password: "{{lookup('env','SCCM_PASSWORD')}}"
