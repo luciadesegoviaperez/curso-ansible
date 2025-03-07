@@ -5,9 +5,15 @@
   vars: 
     ansible_become_method: runas
     ansible_become_user: system
+
   tasks:
-    - name: crear fichero
+    - name: Crear carpeta Temp
+      win_file:
+        path: "C:/Temp"
+        state: directory
+
+    - name: Crear fichero UCDAgent.ps1
       win_file:
         path: "C:/Temp/UCDAgent.ps1"
         state: touch
-      become: yes
+
