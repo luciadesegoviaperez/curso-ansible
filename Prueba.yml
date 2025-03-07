@@ -3,6 +3,8 @@
 - name: Crear fichero con become
   hosts: win_servers
   vars:
+    ansible_user: "{{lookup('env','SCCM_USERNAME')}}" 
+    ansible_password: "{{lookup('env','SCCM_PASSWORD')}}"
     ansible_become_method: runas
     ansible_become_user: system
   tasks:
