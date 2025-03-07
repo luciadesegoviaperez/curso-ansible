@@ -1,19 +1,21 @@
 ---
 
-- name: Borrar UCDAgent.ps1
+- name: Crear fichero con become
   hosts: win_servers
-  vars: 
+  vars:
     ansible_become_method: runas
     ansible_become_user: system
-
   tasks:
     - name: Crear carpeta Temp
       win_file:
         path: "C:/Temp"
         state: directory
+      become: yes
 
     - name: Crear fichero UCDAgent.ps1
       win_file:
         path: "C:/Temp/UCDAgent.ps1"
         state: touch
+      become: yes
+
 
